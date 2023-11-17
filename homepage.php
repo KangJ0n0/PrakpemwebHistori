@@ -6,7 +6,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>WeGotYou Homepage</title>
+    <title>Homepage</title>
     <style>
         header {
             text-align: right;
