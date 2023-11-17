@@ -47,7 +47,7 @@ session_start();
                     }
                 }
                 ?>
-                <li style="float:right"><a href="profile.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
+                <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
                 <?php
                 if (isset($_SESSION['username'])) {
                     $username = $_SESSION['username'];
@@ -58,8 +58,5 @@ session_start();
             </ul>
         </nav>
     </header>
-    <main>
-        <!-- Your main content goes here -->
-    </main>
 </body>
 </html>
