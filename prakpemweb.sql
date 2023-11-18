@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 18 Nov 2023 pada 11.15
--- Versi server: 8.0.30
--- Versi PHP: 8.1.10
+-- Generation Time: Nov 18, 2023 at 02:04 PM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,19 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `film`
+-- Table structure for table `film`
 --
 
 CREATE TABLE `film` (
   `id_film` int NOT NULL,
-  `nama_film` varchar(100) NOT NULL,
-  `gambar_film` varchar(225) NOT NULL,
-  `deskripsi_film` varchar(2500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nama_film` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `gambar_film` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `deskripsi_film` varchar(2500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `tahun` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `film`
+-- Dumping data for table `film`
 --
 
 INSERT INTO `film` (`id_film`, `nama_film`, `gambar_film`, `deskripsi_film`, `tahun`) VALUES
@@ -47,17 +47,17 @@ INSERT INTO `film` (`id_film`, `nama_film`, `gambar_film`, `deskripsi_film`, `ta
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `myfilm`
+-- Table structure for table `myfilm`
 --
 
 CREATE TABLE `myfilm` (
   `id_myfilm` int NOT NULL,
   `id_user` int NOT NULL,
   `id_film` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `myfilm`
+-- Dumping data for table `myfilm`
 --
 
 INSERT INTO `myfilm` (`id_myfilm`, `id_user`, `id_film`) VALUES
@@ -66,38 +66,39 @@ INSERT INTO `myfilm` (`id_myfilm`, `id_user`, `id_film`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
   `id_user` int NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `role` enum('admin','user','manager') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `role` enum('admin','user','manager') COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `role`) VALUES
 (1, 'jonomabokastagfirullahcapekanjing@gmail.com', 'jono', '123', 'admin'),
 (29, 'afiftharavi@gmail.com', 'afif', '123', 'user'),
-(30, 'ahmadsamsudin@gmail.com', 'ahmad', '123', 'user');
+(30, 'ahmadsamsudin@gmail.com', 'ahmad', '123', 'user'),
+(31, 'rizkisamsudin@gmail.com', 'rizki', '123', 'user');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `film`
+-- Indexes for table `film`
 --
 ALTER TABLE `film`
   ADD PRIMARY KEY (`id_film`);
 
 --
--- Indeks untuk tabel `myfilm`
+-- Indexes for table `myfilm`
 --
 ALTER TABLE `myfilm`
   ADD PRIMARY KEY (`id_myfilm`),
@@ -105,33 +106,33 @@ ALTER TABLE `myfilm`
   ADD KEY `fk_myfilm_film` (`id_film`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `myfilm`
+-- AUTO_INCREMENT for table `myfilm`
 --
 ALTER TABLE `myfilm`
-  MODIFY `id_myfilm` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_myfilm` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `myfilm`
+-- Constraints for table `myfilm`
 --
 ALTER TABLE `myfilm`
   ADD CONSTRAINT `fk_myfilm_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`),
