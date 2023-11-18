@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #111;
+        color: #fff;
+      }
+
+      .movie-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px;
+      }
+
+      .movie-item {
+        margin: 10px;
+        text-align: center;
+      }
+
+      .movie-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .movie-item h3 {
+        margin-top: 10px;
+        font-size: 1.2em;
+      }
+
+      /* Responsive styling */
+      @media (max-width: 600px) {
+        .movie-item {
+          flex-basis: 100%;
+        }
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Netflix Movie List</title>
+  </head>
+  <body>
+    <div class="movie-list">
+      <div class="movie-item">
+        <img src="assets/jujur kasihan.jpg" alt="Movie 1" />
+        <h3>Movie 1</h3>
+      </div>
+      <div class="movie-item">
+        <img src="assets/jujur kasihan.jpg" alt="Movie 2" />
+        <h3>Movie 2</h3>
+      </div>
+      <!-- Tambahkan movie-item lainnya sesuai kebutuhan -->
+    </div>
+  </body>
+</html>

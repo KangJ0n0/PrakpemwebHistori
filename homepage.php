@@ -21,6 +21,12 @@ session_start();
             text-decoration: none;
             color: black;
         }
+
+        .text {
+            text-align: center;
+            margin-top: 100px;
+            margin-left: 30px;
+        }
     </style>
 </head>
 <body>
@@ -58,5 +64,9 @@ session_start();
             </ul>
         </nav>
     </header>
+    <div class="text">
+    <h1>Selamat Datang!</h1>
+    <p>Di setiap detik, film sejarah mengukir kejayaan yang tak terlupakan.</p>
+            </div>
 </body>
 </html>

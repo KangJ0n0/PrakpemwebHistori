@@ -1,3 +1,8 @@
+<?php
+session_start();
+require("koneksi.php");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +21,23 @@
             text-decoration: none;
             color: black;
         }
+
+        .film {
+            width: 15%;
+    display: flex;
+    margin: 10px;
+}
+
+.film img {
+    width: 100%; /* Set the width to 100% to fill the container */
+    height: auto; /* Maintain the aspect ratio */
+    cursor: pointer;
+}
+
+.film:hover {
+    transform: scale(1.1);
+}
+
     </style>
 </head>
 <body>
@@ -55,3 +77,37 @@
     </header>
 </body>
 </html>
+<?php
+        // Periksa session username
+        if (isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+    
+            // Query untuk mengambil course yang sudah disimpan oleh pengguna
+            $sql = "SELECT c.gambar_film, c.id_film, c.nama_film, c.tahun
+            FROM film AS c
+            JOIN myfilm AS m ON c.id_film = m.id_film
+            WHERE m.id_user = (SELECT id_user FROM user WHERE username = '$username')";
+
+    
+            $result = mysqli_query($conn, $sql);
+    
+            // Tampilkan course yang sudah disimpan dalam div
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<div class="film">';
+                echo '<a href="detailfilm.php?id_film=' . $row["id_film"] . '">';
+                echo '<img src="' . $row['gambar_film'] . '" />';
+                echo '</a>';
+                echo '<div>';
+                echo '<p>' . $row['nama_film'] . '</p>';
+                echo '<p>(' . $row['tahun'] . ')</p>';
+                // Tambahkan tombol "Hapus" dengan tautan ke skrip penghapusan
+                echo '<a href="hapusmyfilm.php?id=' . $row['id_film'] . '"> Hapus</a>';
+                echo '</div>';
+                echo '</div>';
+            }
+            
+        } else {
+            echo "Anda harus login untuk melihat My Course.";
+        }
+    ?>    
+

@@ -22,6 +22,24 @@ require("koneksi.php");
             text-decoration: none;
             color: black;
         }
+
+        .film {
+          display: flex;
+           width: 10%; /* Atur lebar div film seukuran dengan gambar */
+             margin: 10px; /* Atur margin agar elemen terpisah dengan baik */
+             
+}
+
+.film img {
+    width: 100%; /* Gunakan 100% lebar untuk memenuhi div film */
+    height: auto; /* Menjaga aspek ratio gambar */
+    cursor: pointer;
+}
+
+.film:hover {
+    transform: scale(1.1);
+}
+
     </style>
 </head>
 <body>
@@ -59,5 +77,22 @@ require("koneksi.php");
             </ul>
         </nav>
     </header>
+    <?php
+    $sql = "SELECT * FROM film";
+    $result = $conn->query($sql);
+
+    // Tampilkan data film
+    if ($result->num_rows > 0) {
+      while ($row = $result->fetch_assoc()) {
+        echo '<div class="film">';
+        echo '<a href="detailfilm.php?id_film=' . $row["id_film"] . '">';
+        echo '<img src="' . $row["gambar_film"] . '" alt="gambarfilm">';
+        echo '</div>';
+      }
+    } else {
+      echo "Tidak ada data film.";
+    }
+    ?>
+    
 </body>
 </html>
