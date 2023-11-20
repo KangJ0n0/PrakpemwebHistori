@@ -5,35 +5,21 @@ session_start();
 
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" type="text/css" href="css/homepage.css">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
     <title>Homepage</title>
-    <style>
-        header {
-            text-align: right;
-        
-        }
-      
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav a {
-            text-decoration: none;
-            color: black;
-        }
-
-        .text {
-            text-align: center;
-            margin-top: 100px;
-            margin-left: 30px;
-        }
-    </style>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="homepage.php">Home</a></li>
+            <ul class="navbar">
+                <li><a href="homepage.php" class="page">Home</a></li>
                 <li><a href="movielist.php">Movie List</a></li>
                 <li><a href="watchlist.php">Watch List</a></li>
 
@@ -53,7 +39,7 @@ session_start();
                     }
                 }
                 ?>
-                <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
+                <li style="float:right"><a href="profil.php"><img src="Assets/home/user 1.png" class="profil"></a></li>
                 <?php
                 if (isset($_SESSION['username'])) {
                     $username = $_SESSION['username'];
@@ -64,9 +50,12 @@ session_start();
             </ul>
         </nav>
     </header>
+    <div class="container">
     <div class="text">
     <h1>Selamat Datang!</h1>
-    <p>Di setiap detik, film sejarah mengukir kejayaan yang tak terlupakan.</p>
+    <div class="text2"><p>Di setiap detik, film sejarah mengukir kejayaan yang tak terlupakan.</p>
+    <a href="movielist.php"><img src="assets/home/history movies.png" class="history"></a></div>
+            </div>
             </div>
 </body>
 </html>
