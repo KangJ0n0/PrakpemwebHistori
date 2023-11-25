@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result_select->num_rows > 0) {
         $row = $result_select->fetch_assoc();
     } else {
-        echo "Film tidak ditemukan.";
+        echo "Can't find film data.";
         exit();
     }
     ?>
@@ -119,8 +119,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form method="POST" action="hapusfilm.php">
         <input type="hidden" name="id_film" value="<?php echo $row['id_film']; ?>">
-        <p>Apakah Anda yakin ingin menghapus film ini?</p>
-        <button type="submit">Hapus Film</button>
+        <p>Want to delete this film data?</p>
+        <button type="submit">Delete</button>
     </form>
 
 

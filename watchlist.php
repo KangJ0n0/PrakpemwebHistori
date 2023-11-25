@@ -2,14 +2,13 @@
 session_start();
 require("koneksi.php");
 
-function selamatdatang() {
+function Welcome() {
     if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
-        echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
+        echo '<li style="float:left">Welcome, ' . $username . '</li>';
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,7 +74,7 @@ function selamatdatang() {
                 ?>
                 <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
                 <?php
-                selamatdatang();
+                Welcome();
                 ?>
                  <li><a href="logout.php">Logout</a></li>
             </ul>
@@ -111,13 +110,13 @@ if (isset($_SESSION['username'])) {
     }
     
 } else {
-    echo "Anda harus login untuk melihat My Course.";
+    echo "Login first";
 }
 ?>
 
 <script>
     function deleteFilm(id_film) {
-        var confirmation = confirm("Apakah Anda yakin ingin menghapus film ini dari Watch List?");
+        var confirmation = confirm("Delete this film from watchlist");
         if (confirmation) {
             window.location.href = "hapuswatchlist.php?id=" + id_film;
         }

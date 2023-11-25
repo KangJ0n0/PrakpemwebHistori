@@ -2,6 +2,12 @@
 session_start();
 require("koneksi.php");
 
+function Welcome() {
+    if (isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+        echo '<li style="float:left">Welcome, ' . $username . '</li>';
+    }
+}
 // Periksa apakah pengguna sudah masuk (sesi ada)
 if (!isset($_SESSION['username'])) {
     header("location: login.php");
@@ -83,10 +89,7 @@ $username = $userData['username'];
                 ?>
                 <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
                 <?php
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
-                }
+                Welcome();
                 ?>
                  <li><a href="logout.php">Logout</a></li>
             </ul>

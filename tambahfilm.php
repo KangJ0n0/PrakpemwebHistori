@@ -2,12 +2,107 @@
 session_start();
 require("koneksi.php");
 
-function selamatdatang() {
+function Welcome() {
     if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
-        echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
+        echo '<li style="float:left">Welcome, ' . $username . '</li>';
     }
 }
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tambah Film</title>
+    <style>
+        header {
+            text-align: right;
+        
+        }
+      
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+        <nav>
+            <ul>
+                <li><a href="homepage.php">Home</a></li>
+                <li><a href="movielist.php">Movie List</a></li>
+                <li><a href="watchlist.php">Watch List</a></li>
+
+                <?php
+                if (isset($_SESSION['username'])) {
+                    $username = $_SESSION['username'];
+                    $query = "SELECT role FROM user WHERE username = '$username'";
+                    $result = mysqli_query($conn, $query);
+
+                    if ($result) {
+                        $row = mysqli_fetch_assoc($result);
+                        $role = $row['role'];
+
+                        if ($role === 'admin') {
+                            echo '<li><a href="manageakun.php">Manajemen Akun</a></li>';
+                        }
+                    }
+                }
+                ?>
+                <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
+                <?php
+                Welcome();
+                ?>
+                 <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Tambah Film</h2>
+    <form method="POST" action="tambahfilm.php" enctype="multipart/form-data">
+        <label for="id_film">ID Film:</label>
+        <input type="number" id="id_film" name="id_film" required><br>
+        <label for="nama_film">Film name:</label>
+        <input type="text" id="nama_film" name="nama_film" required><br>
+
+        <label for="gambar_film">Poster picture:</label>
+        <input type="file" name="gambar_film" id="gambar_film" accept="image/*" required><br>
+
+        <label for="deskripsi_film">Film Description:</label>
+        <textarea id="deskripsi_film" name="deskripsi_film" required></textarea><br>
+
+        <label for="tahun">Year release:</label>
+        <input type="number" id="tahun" name="tahun" required><br>
+
+        <label for="direktor">Directors:</label>
+        <input type="text" id="direktor" name="direktor" required><br>
+
+        <label for="writer">Writers:</label>
+        <input type="text" id="writer" name="writer" required><br>
+
+        <label for="stars">Stars:</label>
+        <input type="text" id="stars" name="stars" required><br>
+
+        <label for="durasi">Duration:</label>
+        <input type="text" id="durasi" name="durasi" required><br>
+
+        <button type="submit">Add film</button>
+
+    </form>
+<br>
+    <a href="movielist.php">back</a><br><br>
+
+
+</body>
+</html>
+
+<?php
 
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
@@ -89,94 +184,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Tambah Film</title>
-    <style>
-        header {
-            text-align: right;
-        
-        }
-      
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav a {
-            text-decoration: none;
-            color: black;
-        }
-
-    </style>
-</head>
-<body>
-<header>
-        <nav>
-            <ul>
-                <li><a href="homepage.php">Home</a></li>
-                <li><a href="movielist.php">Movie List</a></li>
-                <li><a href="watchlist.php">Watch List</a></li>
-
-                <?php
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    $query = "SELECT role FROM user WHERE username = '$username'";
-                    $result = mysqli_query($conn, $query);
-
-                    if ($result) {
-                        $row = mysqli_fetch_assoc($result);
-                        $role = $row['role'];
-
-                        if ($role === 'admin') {
-                            echo '<li><a href="manageakun.php">Manajemen Akun</a></li>';
-                        }
-                    }
-                }
-                ?>
-                <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
-                <?php
-                selamatdatang();
-                ?>
-                 <li><a href="logout.php">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <h2>Tambah Film</h2>
-    <form method="POST" action="tambahfilm.php" enctype="multipart/form-data">
-        <label for="id_film">ID Film:</label>
-        <input type="number" id="id_film" name="id_film" required><br>
-        <label for="nama_film">Judul Film:</label>
-        <input type="text" id="nama_film" name="nama_film" required><br>
-
-        <label for="gambar_film">Gambar Film:</label>
-        <input type="file" name="gambar_film" id="gambar_film" accept="image/*" required><br>
-
-        <label for="deskripsi_film">Deskripsi Film:</label>
-        <textarea id="deskripsi_film" name="deskripsi_film" required></textarea><br>
-
-        <label for="tahun">Tahun:</label>
-        <input type="number" id="tahun" name="tahun" required><br>
-
-        <label for="direktor">Direktor:</label>
-        <input type="text" id="direktor" name="direktor" required><br>
-
-        <label for="writer">Writer:</label>
-        <input type="text" id="writer" name="writer" required><br>
-
-        <label for="stars">Stars:</label>
-        <input type="text" id="stars" name="stars" required><br>
-
-        <label> for="durasi">Durasi:</label>
-        <input type="text" id="durasi" name="durasi" required><br>
-
-        <button type="submit">Tambah Film</button>
-
-    </form>
-<br>
-    <a href="movielist.php">Kembali</a><br><br>
-
-
-</body>
-</html>

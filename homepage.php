@@ -17,13 +17,13 @@ function Welcome() {
     <style>
         header {
             text-align: right;
-        
         }
-      
+
         nav ul li {
             display: inline;
             margin-right: 20px;
         }
+
         nav a {
             text-decoration: none;
             color: black;
@@ -35,7 +35,7 @@ function Welcome() {
     </style>
 </head>
 <body>
-<header>
+    <header>
         <nav>
             <ul>
                 <li><a href="homepage.php">Home</a></li>
@@ -62,13 +62,13 @@ function Welcome() {
                 <?php
                 Welcome();
                 ?>
-                 <li><a href="logout.php">Logout</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
-            </header>
+    </header>
     <div class="text">
-    <h1>Selamat Datang!</h1>
-    <p>Di setiap detik, film sejarah mengukir kejayaan yang tak terlupakan.</p>
-            </div>
+        <h1>Welcome!</h1>
+        <p>Every second, historical films carve unforgettable triumphs.</p>
+    </div>
 </body>
 </html>

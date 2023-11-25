@@ -4,10 +4,10 @@ require('koneksi.php');
 
 
 
-function selamatdatang() {
+function Welcome() {
     if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
-        echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
+        echo '<li style="float:left">Welcome, ' . $username . '</li>';
     }
 }
 
@@ -83,13 +83,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
                 ?>
                 <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
                 <?php
-                selamatdatang();
+                Welcome();
                 ?>
                  <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
-    <h2>Manajemen Akun</h2>
+
 
 <h3>Admin</h3>
 <table border="1">
@@ -130,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
         echo "<td>
                 <form method='POST'>
                     <input type='hidden' name='user_id' value='" . $row['id_user'] . "'>
-                    <input type='submit' name='delete_user' value='Hapus'>
+                    <input type='submit' name='delete_user' value='Delete'>
                 </form>
             </td>";
         echo "</tr>";

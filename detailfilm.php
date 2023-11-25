@@ -93,7 +93,7 @@ if (isset($_GET['id_film'])) {
         echo "<h1>$nama_film</h1>";
         if ($role === 'admin') {
             echo '<li><a href="editfilm.php?id_film=' . $row["id_film"] . '">Edit film data</a></li>';
-            echo '<li><a href="hapusfilm.php?id_film=' . $row["id_film"] . '">Erase film data</a></li>';
+            echo '<li><a href="hapusfilm.php?id_film=' . $row["id_film"] . '">Delete film data</a></li>';
         }
         echo "<p style='text-align: left;'><a href='simpanfilm.php?id_film=$id_film'>Add to Watchlist</a></p>";
         echo "<img src='$gambar_film' alt='$nama_film'>";

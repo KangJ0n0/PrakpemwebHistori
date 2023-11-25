@@ -134,14 +134,16 @@ if (!isset($_SESSION['username'])) {
                         ?>
                         <!-- Form untuk mengedit film -->
                         <form method="POST" action="" enctype="multipart/form-data">
-                            ID Film: <?php echo $row['id_film']; ?><br>
-                            Nama Film: <input type="text" name="nama_film" value="<?php echo $row['nama_film']; ?>"><br>
-                            <label for="gambar_film">Gambar Film:</label>
-                            <input type="file" name="gambar_film" id="gambar_film" accept="image/*">
+                            Film name: <input type="text" name="nama_film" value="<?php echo $row['nama_film']; ?>"><br>
+                            Poster picture:<input type="file" name="gambar_film" id="gambar_film" accept="image/*">
                             <img src="<?php echo $row['gambar_film']; ?>" alt="Current Image" width="100"><br>
-                            Deskripsi Film: <textarea name="deskripsi_film"><?php echo $row['deskripsi_film']; ?></textarea><br>
-                            Tahun: <input type="text" name="tahun" value="<?php echo $row['tahun']; ?>"><br>
-                            <button type="submit">Simpan Perubahan</button>
+                            Film description: <textarea name="deskripsi_film"><?php echo $row['deskripsi_film']; ?></textarea><br>
+                            Year release: <input type="number" name="tahun" value="<?php echo $row['tahun']; ?>"><br>
+                            Directors: <input type="text" name="direktor" value="<?php echo $row['direktor']; ?>"><br>
+                            Writers: <input type="text" name="writer" value="<?php echo $row['writer']; ?>"><br>
+                            Stars: <input type="text" name="stars" value="<?php echo $row['stars']; ?>"><br>
+                            Duration: <input type="text" name="durasi" value="<?php echo $row['durasi']; ?>"><br>
+                            <button type="submit">Save change</button>
                         </form>
                         <?php
                     } else {
