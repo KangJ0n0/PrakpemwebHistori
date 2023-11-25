@@ -1,6 +1,13 @@
 <?php
-require("koneksi.php");
 session_start();
+require("koneksi.php");
+
+function Welcome() {
+    if (isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+        echo '<li style="float:left">Welcome, ' . $username . '</li>';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,15 +29,13 @@ session_start();
             color: black;
         }
 
-        .text {
+        h1 {
             text-align: center;
-            margin-top: 100px;
-            margin-left: 30px;
         }
     </style>
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <ul>
                 <li><a href="homepage.php">Home</a></li>
@@ -48,22 +53,19 @@ session_start();
                         $role = $row['role'];
 
                         if ($role === 'admin') {
-                            echo '<li><a href="manageakun.php">Manajemen Akun</a></li>';
+                            echo '<li><a href="manageakun.php">Manage account</a></li>';
                         }
                     }
                 }
                 ?>
                 <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
                 <?php
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
-                }
+                Welcome();
                 ?>
                  <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
-    </header>
+            </header>
     <div class="text">
     <h1>Selamat Datang!</h1>
     <p>Di setiap detik, film sejarah mengukir kejayaan yang tak terlupakan.</p>

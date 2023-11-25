@@ -27,9 +27,10 @@ if (isset($_SESSION['username'])) {
             // Jika pengguna belum menyimpan course ini, lakukan penyimpanan
             $insertQuery = "INSERT INTO myfilm (id_user, id_film) VALUES ('$id_user', '$id_film')";
             if (mysqli_query($conn, $insertQuery)) {
-                echo "<script>alert('berhasil memasukan ke watchlist.')</script>";
+                echo '<script>if(!alert("Berhasil memasukan ke watchlist")) document.location = "movielist.php";
+                </script>';
             } else {
-                echo "<script>alert('Gagal menyimpan course: " . mysqli_error($conn) . "')</script>";
+                echo "<script>alert('Gagal menyimpan film: " . mysqli_error($conn) . "')</script>";
             }
         }
     }

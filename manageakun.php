@@ -2,6 +2,17 @@
 session_start();
 require('koneksi.php');
 
+
+
+function selamatdatang() {
+    if (isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+        echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
+    }
+}
+
+
+
 // Retrieve users with roles admin, manager, and user
 $query_admin = "SELECT * FROM user WHERE role = 'admin'";
 $query_user = "SELECT * FROM user WHERE role = 'user'";
@@ -72,10 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
                 ?>
                 <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
                 <?php
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
-                }
+                selamatdatang();
                 ?>
                  <li><a href="logout.php">Logout</a></li>
             </ul>

@@ -8,22 +8,29 @@ if (!isset($_SESSION['username'])) {
 }
 
 // Ambil data pengguna dari tabel user berdasarkan username sesi
-$username = $_SESSION['username'];
-$sql = "SELECT * FROM user WHERE username = '$username'";
-$result = $conn->query($sql);
+function getUserData() {
+    global $conn;
 
-if ($result->num_rows == 1) {
-    $row = $result->fetch_assoc();
-    $id_user = $row['id_user'];
-    $email = $row['email'];
-    $username = $row['username'];
-    $password = $row['password'];
-    $role = $row['role'];
-} else {
-    echo "Data pengguna tidak ditemukan.";
-    exit();
+    $username = $_SESSION['username'];
+    $sql = "SELECT * FROM user WHERE username = '$username'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        return $row; // Mengembalikan seluruh data pengguna
+    } else {
+        return false;
+    }
 }
+
+// Memanggil fungsi untuk mendapatkan data pengguna
+$userData = getUserData();
+
+// Menetapkan nilai variabel untuk email dan username
+$email = $userData['email'];
+$username = $userData['username'];
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -87,11 +94,8 @@ if ($result->num_rows == 1) {
     </header>
     <div class = "dataprofil">
         <h2>Profil Pengguna</h2>
-    <p><strong>ID User:</strong> <?php echo $id_user; ?></p>
     <p><strong>Email:</strong> <?php echo $email; ?></p>
     <p><strong>Username:</strong> <?php echo $username; ?></p>
-    <p><strong>Password:</strong> <?php echo $password; ?></p>
-    <p><strong>Role:</strong> <?php echo $role; ?></p>
     </div>
 </body>
 </html>

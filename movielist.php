@@ -2,6 +2,14 @@
 session_start();
 require("koneksi.php");
 
+function selamatdatang() {
+    if (isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+        echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
+    }
+}
+$role = '';
+
 ?>
 
 <!DOCTYPE html>
@@ -68,18 +76,21 @@ require("koneksi.php");
                 ?>
                 <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
                 <?php
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
-                }
+                selamatdatang();
                 ?>
                  <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
+    
     <?php
     $sql = "SELECT * FROM film";
     $result = $conn->query($sql);
+
+    if ($role === 'admin') {
+        echo '<li style = "text-align: center;"><a href="tambahfilm.php">Tambah Film</a></li>';
+    }
+
 
     // Tampilkan data film
     if ($result->num_rows > 0) {
