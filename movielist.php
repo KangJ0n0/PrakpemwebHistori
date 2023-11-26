@@ -20,6 +20,22 @@ require("koneksi.php");
         <nav>
             <ul>
                 <input type="text" placeholder="Search..">
+                <?php
+                if (isset($_SESSION['username'])) {
+                    $username = $_SESSION['username'];
+                    $query = "SELECT role FROM user WHERE username = '$username'";
+                    $result = mysqli_query($conn, $query);
+
+                    if ($result) {
+                        $row = mysqli_fetch_assoc($result);
+                        $role = $row['role'];
+
+                        if ($role === 'admin') {
+                            echo '<li><a href="tambahfilm.php"><div class="tambah">+</div></a></li>';
+                        }
+                    }
+                }
+                ?>
                 <li><a href="homepage.php">Home</a></li>
                 <li><a href="movielist.php" class="page">Movie List</a></li>
                 <li><a href="watchlist.php">Watch List</a></li>

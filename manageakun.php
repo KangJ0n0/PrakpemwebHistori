@@ -41,29 +41,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
 <html>
 <head>
     <title>Homepage</title>
-    <style>
-        header {
-            text-align: right;
-        
-        }
-      
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav a {
-            text-decoration: none;
-            color: black;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/manageacc.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+        <ul>
+                <input type="text" placeholder="Search..">
                 <li><a href="homepage.php">Home</a></li>
                 <li><a href="movielist.php">Movie List</a></li>
-                <li><a href="watchlist.php">Watch List</a></li>
+                <li><a href="watchlist.php" class="page">Watch List</a></li>
 
                 <?php
                 if (isset($_SESSION['username'])) {
@@ -81,18 +75,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
                     }
                 }
                 ?>
-                <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
-                <?php
-                Welcome();
-                ?>
+                <li style="float:right"><a href="profil.php"><img src="assets/home/user 1.png" style="height: 25px; width: 25px;"></a></li>
                  <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
-
-
+    
+    <div class="container">
+    <table>
+    <tr>
+        <td>
+            <div class="acclist">
+                <h1>Account List</h1>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="shape"></div>
+        </td>
+    </tr>
+    </table>
+    </div>
+    <div class="center">
+    <div class="kotak">
 <h3>Admin</h3>
-<table border="1">
+<table class="admin" border="1">
     <tr>
         <th>ID User</th>
         <th>Email</th>
@@ -101,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
     </tr>
     <?php
     while ($row = mysqli_fetch_assoc($result_admin)) {
-        echo "<tr>";
+        echo "<tr align='center'>";
         echo "<td>" . $row['id_user'] . "</td>";
         echo "<td>" . $row['email'] . "</td>";
         echo "<td>" . $row['username'] . "</td>";
@@ -112,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
 </table>
 
 <h3>User</h3>
-<table border="1">
+<table class="user" border="3">
     <tr>
         <th>ID User</th>
         <th>Email</th>
@@ -122,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
     </tr>
     <?php
     while ($row = mysqli_fetch_assoc($result_user)) {
-        echo "<tr>";
+        echo "<tr align='center'>";
         echo "<td>" . $row['id_user'] . "</td>";
         echo "<td>" . $row['email'] . "</td>";
         echo "<td>" . $row['username'] . "</td>";
@@ -137,5 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
     }
     ?>
 </table>
+</div>
+</div>
 </body>
 </html>

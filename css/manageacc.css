@@ -1,0 +1,105 @@
+body{
+    background-image: url("../assets/Vector.png");
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Cabin', sans-serif;  
+
+}
+header {
+    text-align: right;
+
+}
+nav ul input[type=text]{
+    color: #F5DFC8;
+    background-color: transparent;
+    outline: none;
+    font-size: 28px;;
+    float: left;
+    width: 397px;
+    height: 49px;
+    padding-left: 70px;
+    padding-bottom: 2px;
+    background-image: url(../assets/Group\ 7.png);
+    background-repeat: no-repeat;
+    border: none;
+}
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+    color: #F5DFC8;
+    font-family: 'Cabin', sans-serif;
+    font-size: 30px;
+}
+nav a {
+    text-decoration: none;
+    color: #F5DFC8;
+}
+
+.shape{
+    background-color: #F5DFC8;
+    width: 1220px;
+    height: 3px;
+    border-radius:40px;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-family: 'Calistoga', serif;
+    color: white;
+    font-size: 50px;
+}
+.acclist{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kotak{
+
+    width: 90%;
+}
+h3{
+    color:#fff;
+    font-family: 'Calistoga', serif;
+    font-weight: 400;
+}
+td{
+    color: white;
+    padding: 10px;
+
+}
+th{
+    color: #7B403A;
+    background-color: #F5DFC8;
+    border-collapse: collapse;
+    padding: 10px;
+}
+.admin{
+    border-color: #F5DFC8;
+    border-collapse: collapse;
+}
+.user{
+    border-color: #F5DFC8;
+    border-collapse: collapse;
+}
+th:not(:last-child),
+td:not(:last-child) {
+    border-right-color: #7B403A;
+}
+
+th:not(:first-child),
+td:not(:first-child) {
+    border-left-color: #7B403A;
+}
+.kotak table{
+    width: 100%;
+    font-size: 28px;
+}
