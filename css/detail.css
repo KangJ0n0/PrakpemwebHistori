@@ -90,7 +90,7 @@ table td{
 }
 .overflow{
     width: 1000px;
-    height: 400px;
+    height: 100px;
     border: 1px solid white;
     overflow: auto;
     outline: none;
