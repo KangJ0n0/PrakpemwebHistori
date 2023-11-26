@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 18, 2023 at 02:04 PM
+-- Generation Time: Nov 25, 2023 at 05:16 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -32,17 +32,30 @@ CREATE TABLE `film` (
   `nama_film` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `gambar_film` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
   `deskripsi_film` varchar(2500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `tahun` int NOT NULL
+  `tahun` int NOT NULL,
+  `direktor` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `writer` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `stars` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `durasi` varchar(20) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `film`
 --
 
-INSERT INTO `film` (`id_film`, `nama_film`, `gambar_film`, `deskripsi_film`, `tahun`) VALUES
-(1, 'Jujur Kasihan', 'assets/jujur kasihan.jpg', 'Berikut alasan penggemar merubah judul anime Jujutsu Kaisen menjadi Jujur Kasian:\r\n\r\nKarakter utama kurang mendapat perhatian\r\nHal ini disebabkan oleh Satoru Gojo yang mendapatkan lebih banyak perhatian dibandingkan Yuji Itadori selaku karakter utama Jujutsu Kaisen.\r\n', 2023),
-(2, 'Jenderal Soedirman', 'assets/jenderal soedirman.jpg', 'Film ini bercerita tentang seorang tokoh yang bernama Soedirman, seorang jenderal yang menderita penyakit paru-paru dan hanya memiliki satu paru-paru namun begitu gigih berjuang dan berperang gerilya melawan penjajahan Belanda.\r\n\r\nMovie Time kala itu diadakan pada Kamis, 16 Agustus 2018, dimulai pada Pkl. 13.00 – 15.00 wib dan bertempat di Library Lounge, Universitas Ciputra 3, Lantai 2.\r\n\r\nFilm yang dibintangi oleh Adipatiu dolken ini menceritakan tentang Belanda menyatakan secara sepihak sudah tidak terikat dengan perjanjian Renville, sekaligus menyatakan penghentian gencatan senjata. Pada tanggal 19 Desember 1948, Jenderal Simons Spoor Panglima Tentara Belanda memimpin Agresi militer ke II menyerang Yogyakarta yang saat itu menjadi ibukota Republik..\r\n\r\nSoekarno-Hatta ditangkap dan diasingkan ke Pulau Bangka. Jenderal Soedirman yang sedang didera sakit berat melakukan perjalanan ke arah selatan dan memimpin perang gerilya selama tujuh bulan.\r\n\r\nBelanda menyatakan Indonesia sudah tidak ada. Dari kedalaman hutan, Jenderal Soedirman menyiarkan bahwa Republik Indonesia masih ada, kokoh berdiri bersama Tentara Nasionalnya yang kuat.\r\n\r\nSoedirman membuat Jawa menjadi medan perang gerilya yang luas, membuat Belanda kehabisan logistik dan waktu.\r\n\r\nKemanunggalan TNI dan rakyat lah akhirya memenangkan perang. Dengan ditanda tangani Perjanjian Roem-Royen, Kerajaan Belanda mengakui kedaulatan RI seutuhnya.\r\n\r\n', 2015),
-(10, 'Tendangan si Madun Returns', 'assets/madun.jpg', 'Madun anak berusia 12 tahun ini, sehari hari tinggal bersama ibunya, Bu Marni. Madun bekerja sebagai Pembersih di lapangan Futsal milik Pak Darmawan dan Ibu Shinta. Suatu hari Pak Darmawan dan Bu Shinta yang menginginkan tanah milik Panti Asuhan, sengaja menagih hutang ibu Panti demi mendapatkan tanah tersebut. Karena upayanya gagal, lalu mereka memutuskan mengadakan pertandingan sepak bola antara team Pak Darmawan bersama anaknya, Juki, melawan team Panti Asuhan. Saat pertandingan berlangsung, team Panti Asuhan nyaris kalah. Melihat itu Madun tidak rela, karena tidak ingin Panti Asuhan di ambil paksa oleh Pak Darmawan, Maka diam diam ia menyamar menjadi pemain bola bertopeng demi membantu team panti Asuhan, hingga akhirnya meraih kemenangan.\r\n\r\nPak Darmawan tidak rela menerima kekalahan itu, lalu diam diam melakukan perjanjian lagi dengan Bang Jebret untuk mengadakan ulang pertandingan dengan iming iming jika team panti kembali memenangkan pertandingan, dia akan merelakan Panti Asuhan sekaligus juga akan memperbaiki fasilitas panti asuhan. Bang Jebret yang tergiur diam diam menyetujui usul Pak Darmawan tanpa membicarakannya terlebih dahulu dengan Ibu Panti. Bang Jebret juga berharap tim panti akan kembali mendapat bantuan dari Pemain Bertopeng alias Madun.\r\n\r\nTanpa disangka, Bu Marni yang tahu Madun dekat dengan Panti Asuhan menjadi cemas. Dia takut rahasia nya terbongkar, kalau Madun bukan anak kandungnya, melainkan anak yang diambil dari panti asuhan. Bu Marni pun akhirnya meminta ke Madun untuk berjanji tidak lagi berhubungan dengan team Panti dan juga tidak lagi bermain bola. Madun yang tidak bisa melihat Ibunya sedih itu menyetujui perjanjian tersebut, walau sebenarnya bingung dan sedih bila tidak boleh bermain bola lagi, lalu bagaimana dengan nasib team Panti? Maka Madun pun dengan berat hati menolak ketika Dodo CS meminta bantuannya untuk bergabung bertanding melawan team Pak Darmawan.\r\n\r\nDalam kebingungannya itu dia bertemu seorang Kakek Tua, yang kemudian banyak mengajarinya teknik bermain bola. Sampai akhirnya Madun tahu kalau ternyata kakek itu sedang mencari cucu nya yang hilang karena diambil oleh lawan tanding anaknya sesama pemain sepak bola. Tanpa di ketahui oleh kakek tua kalau sebenarnya cucu yang dicarinya itu adalah Madun.\r\n', 2014);
+INSERT INTO `film` (`id_film`, `nama_film`, `gambar_film`, `deskripsi_film`, `tahun`, `direktor`, `writer`, `stars`, `durasi`) VALUES
+(1, 'Habibie & Ainun', 'assets/image 36.png', 'This movie is based on the memoir written by the 3rd President of Indonesia and one of the world-famous engineer, B.J. Habibie about his wife, Hasri Ainun Habibie.', 2012, 'Faozan Rizal', 'B.J. Habiebie, Ifan Ismail, Gina S Noer', 'Reza Rahardian, Bunga Citra Lestari, Tio Pakusadewo', '2h '),
+(2, 'Bumi Manusia', 'assets/image 36 (1).png', 'A native Javanese boy and a mixed-Dutch girl fall in love during the early 20th-century colonial turbulence in Dutch East Indies (now Indonesia).', 2019, 'Hanung Bramantyo, X. Jo', 'Pramoedya Ananta Toer, Salman Aristo', 'Iqbaal Dhiafakhri Ramadhan, Mawar Eva De Jongh', '3h 1m'),
+(3, 'Kartini: Princess of Java', 'assets/image 36 (2).png', 'This movie follows the story of the Indonesian heroine named Kartini. In the early 1900s, when Indonesia was still a colony of the Netherlands, women weren\'t allowed to get higher education. Kartini grew up to fight for equality for women.', 2017, 'Hanung Bramayanto', 'Bagus Bramanti, Hanung Bramayanto, Robert Ronny ', 'Dian Sastrowardoyo, Ayushita, Acha Septriasa', '2h 2m'),
+(4, 'Buya Hamka Vol. 1', 'assets/image 36 (3).png', 'This sweeping biopic captures the life of renowned Muslim scholar Buya Hamka, from his humble West Sumatra origins to his political achievements.', 2023, 'Fajar Bustomi', 'Cassandra Massardi, Alim Sudio', 'Vino G. Bastian, Laudya Chintya Bella,  Donny Damara', '1h 46m'),
+(5, 'Soekarno', 'assets/image 36 (4).png', 'This movie follows the life of Soekarno, the first president of the Republic of Indonesia, from his childhood until he managed to proclaimed Indonesian freedom with M. Hatta in 1945.', 2013, 'Hanung Bramayanto', 'Ben Sihombing', 'Ario Bayu, Muhammad Abbe, Moch. Achir', '2h 17m'),
+(6, 'Sultan Agung: Tahta, Perjuangan, Cinta', 'assets/image 37.png', 'The story about Sultan Agung of Mataram, how he ascended the throne and had to face VOC in great wars, the events that caused his people\'s misery.', 2018, 'Hanung Bramantyo, X. Jo', 'Ifan Ismail, Bagas Pudjilanksono, Mooryati Soedibyo', 'Ario Bayu, Marthino Lio, Adinia Wirasti', '2h 28m'),
+(7, 'A Man Called Ahok', 'assets/image 36 (5).png', 'Depicts the life of the titular former governor of Jakarta before he ran for office, Ahok learned a lot about discipline from his father who ran a mining business in Belitung while dealing with various corrupt people.', 2018, 'Putrama Tuta', 'Danny Jaka Sembada, Ilya Sigma, Putrama Tuta', 'Daniel Mananta, Kin Wah Chew, Eric Febrian', '1h 42m'),
+(8, 'Jokowi', 'assets/image 36 (6).png', 'Story of the Indonesian President\'s life before he become famous.', 2013, 'Azhar kinoi Lubis', 'Joko Nugroho, Azhar kinoi Lubis', 'T. Rifnu Wikana, Prisia Nasution, Susilo Badar', '1h 57m'),
+(9, 'Merah Putih', 'assets/image 36 (7).png', 'A band of Indonesian men bond together as cadets, survive a massacre, and fight on as guerrilla soldiers against the Dutch despite their conflicts and deep differences in social class.', 2009, 'Yadi Sugandi', 'Conor Allyn, Rob Allyn', 'Donny Alamsyah, Rahayu Saraswati, Lukman Sardi', '1h 48m'),
+(10, 'Guru Bangsa Tjokroaminoto', 'assets/image 36 (8).png', 'In 1912, Javanese activist Omar Said Tjokroaminoto (Reza Rahadian) co-founds the Sarekat Islam party to fight injustices of the Dutch East Indies\' colonial regime.', 2015, 'Garin Nugroho', 'Erik Supit, Ari M. Syarif', 'Reza Rahardian, Christoffer Nelwan, Putri Ayudya', '2h 41m'),
+(11, 'Jendral Soedirman', 'assets/image 42.png', 'Tells the story of the war that took place in 1948 after Indonesia was declared independent. General Soerdirman, who at that time led the guerrilla war, made the island of Java strong and defeated the Dutch, marked by the Roem-Royen agreement.', 2015, 'Viva Westi', 'Tubagus Deddy, Viva Westi', 'Adipati Dolken, Ibnu Jamil, Gogot Suryanto', '2h 6m'),
+(12, 'Soegija', 'assets/image 36 (9).png', 'This movie follows the story of Dutch East Indies\' (now Indonesia) first indigenous bishop, Albertus Soegijapranata SJ, from his inauguration until the end of Indonesia\'s independence war (1940-1949).', 2012, 'Garin Nugroho', 'Aramantono, Garin Nugroho', 'Nirwan Dewanto, Annisa Hertami, Wouter Braaf', '1h 55m');
 
 -- --------------------------------------------------------
 
@@ -61,7 +74,7 @@ CREATE TABLE `myfilm` (
 --
 
 INSERT INTO `myfilm` (`id_myfilm`, `id_user`, `id_film`) VALUES
-(11, 29, 2);
+(22, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -84,8 +97,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `role`) VALUES
 (1, 'jonomabokastagfirullahcapekanjing@gmail.com', 'jono', '123', 'admin'),
 (29, 'afiftharavi@gmail.com', 'afif', '123', 'user'),
-(30, 'ahmadsamsudin@gmail.com', 'ahmad', '123', 'user'),
-(31, 'rizkisamsudin@gmail.com', 'rizki', '123', 'user');
+(33, 'afiftharavi@gmail.com', 'as', 'ass', 'user');
 
 --
 -- Indexes for dumped tables
@@ -119,13 +131,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `myfilm`
 --
 ALTER TABLE `myfilm`
-  MODIFY `id_myfilm` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_myfilm` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Constraints for dumped tables
@@ -135,7 +147,7 @@ ALTER TABLE `user`
 -- Constraints for table `myfilm`
 --
 ALTER TABLE `myfilm`
-  ADD CONSTRAINT `fk_myfilm_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`),
+  ADD CONSTRAINT `fk_myfilm_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_myfilm_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
 COMMIT;
 
