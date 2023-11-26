@@ -87,6 +87,10 @@ h1{
     margin: 25px;
     transition: filter 0.3s, transform 0.3s ;
     }
+.film table{
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+}
 .film:hover {
     transform: scale(1.04);
     filter:brightness(50%);
@@ -110,4 +114,7 @@ input{
 .page{
     color: #ffffff;
 
+}
+.tahun{
+    color: #FEB18B;
 }

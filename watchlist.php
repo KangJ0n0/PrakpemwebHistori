@@ -84,8 +84,18 @@ if (isset($_SESSION['username'])) {
 
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<div class="film">';
-        echo '<a href="detailfilm.php?id_film=' . $row["id_film"] . '">';
-        echo '<img src="' . $row["gambar_film"] . '" alt="gambarfilm"></a>';
+        echo '
+        <table>
+            <tr align="center">
+                <td><a href="detailfilm.php?id_film=' . $row["id_film"] . '"><img src="' . $row["gambar_film"] . '" alt="gambarfilm"></a></td>
+            </tr>
+            <tr align="center">
+                <td><a href="detailfilm.php?id_film=' . $row["id_film"] . '">'. $row['nama_film'].'</a></td>
+            </tr>
+            <tr align="center">
+                <td><a class="tahun" href="detailfilm.php?id_film=' . $row["id_film"] . '">('. $row['tahun'].')</a></td>
+            </tr>
+        </table>';
         echo '</div>';
     }
     
