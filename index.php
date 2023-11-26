@@ -29,24 +29,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
     <head>
         <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
     </head>
     <body>
-    <h2>Login</h2>
-    <table>
+        <div class="container">
+            <div class="left"><img src="../assets/image 22.png"></div>
+            
+            <div class="right">
+            <table>
+                <tr>
+                <td colspan="2" align="center"><h6>LOGIN</h6></td>
+                </tr>
     <form method="post" action="">
+        <div class="login">
         <tr>
-            <td><label for="username">Username</label></td>
-            <td>:</td>
-            <td> <input type="text" name="username" required></td></tr>
+            <td colspan="2">
+            <div class="username">
+                <div class="kotak1"><img src="../assets/user1.png"></div>
+                <div class="kotak2"><input type="text" name="username"></div>
+            </div>
+            </td>
+        </tr>
         <tr>
-            <td><label for="password">Password</label></td>
-            <td>:</td>
-            <td><input type="password" name="password" required></td></tr>
-        <tr>
-            <td> <input type="submit" value="Login"></td></tr>
+            <td colspan="2">
+            <div class="username">
+                <div class="kotak1"><img src="../assets/lock1.png"></div>
+                <div class="kotak2"><input type="text" name="password"></div>
+            </div>
+            </td>
+        </tr>
+            <td colspan="2"><div class="login"><input type="submit" value="login"></div></td>
+        </tr>
         </form>
-        </table>
-        <p>belum memiliki akun?</p>
-            <a href="register.php">Registerasi</a>
+        <tr>
+</div>
+        <td><input type="checkbox"> remember me</td>
+        <td align="right"><a href="">fotgot password?</a></td>
+        </tr>
+        <td> </td>
+        <td align="right"><a href="">Don't have account?</a></td>
+        </tr>
+            </table>
+        </div>
+</div>  
     </body>
 </html>

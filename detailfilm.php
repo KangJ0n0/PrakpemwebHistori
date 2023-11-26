@@ -6,65 +6,22 @@ require("koneksi.php");
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="css/detail.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
     <title>Homepage</title>
-    <style>
-        header {
-            text-align: right;
-        
-        }
-      
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav a {
-            text-decoration: none;
-            color: black;
-        }
-
-        h1 {
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
-<header>
-        <nav>
-            <ul>
-                <li><a href="homepage.php">Home</a></li>
-                <li><a href="movielist.php">Movie List</a></li>
-                <li><a href="watchlist.php">Watch List</a></li>
-
-                <?php
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    $query = "SELECT role FROM user WHERE username = '$username'";
-                    $result = mysqli_query($conn, $query);
-
-                    if ($result) {
-                        $row = mysqli_fetch_assoc($result);
-                        $role = $row['role'];
-
-                        if ($role === 'admin') {
-                            echo '<li><a href="manageakun.php">Manajemen Akun</a></li>';
-                        }
-                    }
-                }
-                ?>
-                <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
-                <?php
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
-                }
-                ?>
-                 <li><a href="logout.php">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
-</body>
-</html>
-
+<a href="#" id="back"><div class="arrow"><img src="../assets/arrow 1.png"></div></a>
+    <script>
+        document.getElementById("back").addEventListener("click", function() {
+            history.back();
+        });
+    </script>
 <?php
 
 if (isset($_GET['id_film'])) {
@@ -79,17 +36,45 @@ if (isset($_GET['id_film'])) {
         $nama_film = $row['nama_film'];
         $gambar_film = $row['gambar_film'];
         $deskripsi_film = $row['deskripsi_film'];
+        $tahun = $row['tahun'];
 
         // Tampilkan data film
-        echo "<h1>$nama_film</h1>";
-        echo "<p style='text-align: left;'><a href='simpanfilm.php?id_film=$id_film'>Tambahkan ke Watch List</a></p>";
-        echo "<img src='$gambar_film' alt='$nama_film'>";
-        echo "<p>$deskripsi_film</p>";
-    } else {
+        echo "<div class='center'><div class='container'><p class='judul'>$nama_film</p>";
+        echo "<p class='tahun'>$tahun</p>";
+        echo 
+        "<div class='deskripsi'>
+        <table>
+        <tr>
+        <td rowspan='7'><img src='$gambar_film' alt='$nama_film' class='poster'></td>
+        <tr>
+        <td>Genre</td>
+        </tr>
+        <tr>
+        <td><p class='overflow'>$deskripsi_film</p></td>
+        </tr>
+        <tr>
+        <td class='cast'>Directors ...</td>
+        </tr>
+        <tr>
+        <td class='cast'>Writers ...</td>
+        </tr>
+        <tr>
+        <td class='cast1'>Stars ...</td>
+        </tr>
+        <tr>
+        <td class='kotakadd'><a href='simpanfilm.php?id_film=$id_film'><div class='add'>Add to Watchlist</div></a></td>
+        </tr>
+        </table>
+        
+        
+        </div>";
+        } else {
         echo "Data film tidak ditemukan.";
     }
 } else {
     echo "ID film tidak valid.";
 }
 ?>
+</body>
+</html>
 

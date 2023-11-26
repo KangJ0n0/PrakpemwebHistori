@@ -1,0 +1,102 @@
+body{
+    background-image: url("../assets/index.png");
+    background-size: 100%;
+    font-family: 'Cabin', sans-serif;  
+    background-repeat: no-repeat;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kanan{
+    margin-left: 20px;
+    width: 756px;
+    height: 746px;
+}
+.kanan img{
+    width: 756px;
+    height: 746px;
+}
+.right{
+    margin-left: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 756px;
+    height: 746px;
+}
+h2{
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+.username{
+    display: flex;
+}
+
+.kotak1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #081818;
+    width: 75px;
+    height: 75px;
+    background-color: #081818;
+}
+.kotak1 img{
+    width:50px;
+    height:50px;
+}
+
+.kotak2{
+    background-color: #081818;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #081818;
+    width: 400px;
+    height: 75px;
+}
+
+.kotak2 input{
+    font-family: 'Cabin', sans-serif;
+    color: #F5DFC8;
+    font-size: 28px;
+    background: transparent;
+    outline: none;
+    border: none;
+    width: 380px;
+    height:70px;
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login input{
+    font-family: 'Cabin', sans-serif;
+    font-size: 25px;
+    margin-top: 30px;
+    width: 220px;
+    height: 55px;
+    color:#081818;
+    background: transparent;
+    outline: white;
+    border: 3px solid #081818;
+    transition: all 0.1s ease-in-out  ;
+}
+
+.login input:hover{
+    color: #F5DFC8;
+    background-color: #081818;
+    outline: white;
+}
+
+a{
+    color:#081818;
+}

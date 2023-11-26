@@ -40,19 +40,18 @@ session_start();
                 }
                 ?>
                 <li style="float:right"><a href="profil.php"><img src="Assets/home/user 1.png" class="profil"></a></li>
-                <?php
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
-                }
-                ?>
                  <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
     <div class="container">
     <div class="text">
-    <h1>Selamat Datang!</h1>
+    <?php
+                if (isset($_SESSION['username'])) {
+                    $username = $_SESSION['username'];
+                    echo '<h1>Selamat datang, ' . $username . ' !</h1>';
+                }
+                ?>
     <div class="text2"><p>Di setiap detik, film sejarah mengukir kejayaan yang tak terlupakan.</p>
     <a href="movielist.php"><img src="assets/home/history movies.png" class="history"></a></div>
             </div>

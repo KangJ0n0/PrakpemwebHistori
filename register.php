@@ -41,29 +41,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <head>
     <title>Registerasi</title>
-</head>
+    <link rel="stylesheet" type="text/css" href="css/regis.css">
+
 <body>
-    <h1>REGISTERASI</h1>
+<div class="container"> 
+            <div class="right">
     <table>
-    <form method="POST" action="">
-            <tr>
-                <td><label>Email</label></td>
-                <td>:</td>
-                <td><input type="text" name="email" required></td></tr>
-            <tr>
-                <td><label>Username</label></td>
-                <td>:</td>
-                <td><input type="text" name="username" required></td></tr>
-            <tr>
-                <td><label>Password</label></td>
-                <td>:</td>
-                <td><input type="password" name="password" required></td></tr>
-            <tr>
-                <td><input type="submit" value="Register"></td><tr> 
-        </form>  
-        </table>
-        <a href="index.php">Login</a> 
-        <?php echo $notification; ?> <!-- Menampilkan notifikasi -->
-    </div>
+        <tr>
+            <td colspan="2" align="center"><h2>Create an Account</h2></td>
+        </tr>
+        <form method="post" action="">
+        <div class="login">
+        <tr>
+            <td colspan="2">
+            <div class="username">
+                <div class="kotak1"><img src="../assets/mail1.png"></div>
+                <div class="kotak2"><input type="text" name="email" required></div>
+            </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+            <div class="username">
+                <div class="kotak1"><img src="../assets/user2.png"></div>
+                <div class="kotak2"><input type="text" name="username" required></div>
+            </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+            <div class="username">
+                <div class="kotak1"><img src="../assets/lock2.png"></div>
+                <div class="kotak2"><input type="password" name="password" required></div>
+            </div>
+            </td>
+        </tr>
+            <td colspan="2"><div class="login"><input type="submit" value="Register"></div></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><a href="index.php">Already have an account?</a></td>
+        </tr>
+        </form>
+</div>
+            </table>
+        </div>
+        <div class="kanan"><img src="../assets/image 23.png"></div>
+</div> 
 </body>
 </html>

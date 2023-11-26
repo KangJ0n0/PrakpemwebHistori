@@ -7,43 +7,19 @@ require("koneksi.php");
 <html>
 <head>
     <title>Homepage</title>
-    <style>
-        header {
-            text-align: right;
-        
-        }
-      
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav a {
-            text-decoration: none;
-            color: black;
-        }
-
-        .film {
-            width: 15%;
-    display: flex;
-    margin: 10px;
-}
-
-.film img {
-    width: 100%; /* Set the width to 100% to fill the container */
-    height: auto; /* Maintain the aspect ratio */
-    cursor: pointer;
-}
-
-.film:hover {
-    transform: scale(1.1);
-}
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/watchlist.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav>
             <ul>
+                <input type="text" placeholder="Search..">
                 <li><a href="homepage.php">Home</a></li>
                 <li><a href="movielist.php">Movie List</a></li>
                 <li><a href="watchlist.php">Watch List</a></li>
@@ -64,17 +40,27 @@ require("koneksi.php");
                     }
                 }
                 ?>
-                <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
-                <?php
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
-                }
-                ?>
+                <li style="float:right"><a href="profil.php"><img src="assets/home/user 1.png" style="height: 25px; width: 25px;"></a></li>
                  <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
+    <div class="container">
+    <table>
+    <tr>
+        <td>
+            <div class="mywatch">
+                <h1>My Watchlist</h1>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="shape"></div>
+        </td>
+    </tr>
+    </table>
+    </div>
 </body>
 </html>
 <?php

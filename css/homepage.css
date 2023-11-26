@@ -2,7 +2,7 @@ body{
     background-color: #081818;
     background-image: url("../assets/home.png");
     background-repeat: no-repeat;
-    background-size: 582px ;
+    background-size: 700px ;
 }
 
 
@@ -65,4 +65,8 @@ h1{
 .page{
     color: #ffffff;
 
+}
+.selamat{
+    float:left;
+    color: #ffffff;
 }

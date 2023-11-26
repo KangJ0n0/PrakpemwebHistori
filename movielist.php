@@ -41,16 +41,11 @@ require("koneksi.php");
                 }
                 ?>
                 <li style="float:right"><a href="profil.php"><img src="assets/home/user 1.png" style="height: 25px; width: 25px;"></a></li>
-                <?php
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
-                }
-                ?>
                  <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
+    <div class="container">
     <?php
     $sql = "SELECT * FROM film";
     $result = $conn->query($sql);
@@ -60,13 +55,13 @@ require("koneksi.php");
       while ($row = $result->fetch_assoc()) {
         echo '<div class="film">';
         echo '<a href="detailfilm.php?id_film=' . $row["id_film"] . '">';
-        echo '<img src="' . $row["gambar_film"] . '" alt="gambarfilm">';
+        echo '<img src="' . $row["gambar_film"] . '" alt="gambarfilm"></a>';
         echo '</div>';
       }
     } else {
       echo "Tidak ada data film.";
     }
     ?>
-    
+    </div>
 </body>
 </html>

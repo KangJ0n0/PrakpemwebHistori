@@ -29,69 +29,37 @@ if ($result->num_rows == 1) {
 <html>
 <head>
     <title>Homepage</title>
-    <style>
-        header {
-            text-align: right;
-        
-        }
-      
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav a {
-            text-decoration: none;
-            color: black;
-        }
-        .dataprofil {
-            text-align: justify;
-            margin-top: 40px;
-            margin-left: 30px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/profil.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="homepage.php">Home</a></li>
-                <li><a href="movielist.php">Movie List</a></li>
-                <li><a href="watchlist.php">Watch List</a></li>
-
-                <?php
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    $query = "SELECT role FROM user WHERE username = '$username'";
-                    $result = mysqli_query($conn, $query);
-
-                    if ($result) {
-                        $row = mysqli_fetch_assoc($result);
-                        $role = $row['role'];
-
-                        if ($role === 'admin') {
-                            echo '<li><a href="manageakun.php">Manajemen Akun</a></li>';
-                        }
-                    }
-                }
-                ?>
-                <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
-                <?php
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
-                }
-                ?>
-                 <li><a href="logout.php">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
+    <a href="#" id="back"><div class="arrow"><img src="../assets/arrow 1.png"></div></a>
+    <script>
+        document.getElementById("back").addEventListener("click", function() {
+            history.back();
+        });
+    </script>
+    <div class="container">
     <div class = "dataprofil">
-        <h2>Profil Pengguna</h2>
-    <p><strong>ID User:</strong> <?php echo $id_user; ?></p>
-    <p><strong>Email:</strong> <?php echo $email; ?></p>
-    <p><strong>Username:</strong> <?php echo $username; ?></p>
-    <p><strong>Password:</strong> <?php echo $password; ?></p>
-    <p><strong>Role:</strong> <?php echo $role; ?></p>
+        <table>
+            <tr>
+                <td colspan="2" align="center"><h1><?php echo $username; ?></h1></td>
+            </tr>
+            <tr>
+                <td colspan="2"  align="center"><div class="email"><input type="text" name="email" value="<?php echo $email; ?>" readonly></div><td>
+            </tr>
+            <tr>
+                <td align="center" class="home"><input type="submit" value="home" name="home"></td>
+                <td align="center" class="movielist"><input type="submit" value="movie list" name="movielist"></td>
+            </tr>
+        </table>
     </div>
+</div>
 </body>
 </html>
