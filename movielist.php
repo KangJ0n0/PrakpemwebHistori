@@ -21,7 +21,7 @@ require("koneksi.php");
             <ul>
                 <input type="text" placeholder="Search..">
                 <li><a href="homepage.php">Home</a></li>
-                <li><a href="movielist.php">Movie List</a></li>
+                <li><a href="movielist.php" class="page">Movie List</a></li>
                 <li><a href="watchlist.php">Watch List</a></li>
 
                 <?php
@@ -45,6 +45,7 @@ require("koneksi.php");
             </ul>
         </nav>
     </header>
+    <div class="center">
     <div class="container">
     <?php
     $sql = "SELECT * FROM film";
@@ -62,6 +63,6 @@ require("koneksi.php");
       echo "Tidak ada data film.";
     }
     ?>
-    </div>
+    </div></div>
 </body>
 </html>

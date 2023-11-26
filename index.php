@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <td align="right"><a href="">fotgot password?</a></td>
         </tr>
         <td> </td>
-        <td align="right"><a href="">Don't have account?</a></td>
+        <td align="right"><a href="register.php">Don't have account?</a></td>
         </tr>
             </table>
         </div>

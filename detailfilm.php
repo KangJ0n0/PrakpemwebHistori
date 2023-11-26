@@ -37,10 +37,15 @@ if (isset($_GET['id_film'])) {
         $gambar_film = $row['gambar_film'];
         $deskripsi_film = $row['deskripsi_film'];
         $tahun = $row['tahun'];
+        $durasi = $row['durasi'];
+        $direktor = $row['direktor'];
+        $writer = $row['writer'];
+        $stars = $row['stars'];
+
 
         // Tampilkan data film
         echo "<div class='center'><div class='container'><p class='judul'>$nama_film</p>";
-        echo "<p class='tahun'>$tahun</p>";
+        echo "<p class='tahun'>$tahun $durasi</p>";
         echo 
         "<div class='deskripsi'>
         <table>
@@ -53,13 +58,13 @@ if (isset($_GET['id_film'])) {
         <td><p class='overflow'>$deskripsi_film</p></td>
         </tr>
         <tr>
-        <td class='cast'>Directors ...</td>
+        <td class='cast'>Directors <p class='putih'>$direktor</p></td>
         </tr>
         <tr>
-        <td class='cast'>Writers ...</td>
+        <td class='cast'>Writers <p class='putih'>$writer</p></td>
         </tr>
         <tr>
-        <td class='cast1'>Stars ...</td>
+        <td class='cast1'>Stars <p class='putih'>$stars</p></td>
         </tr>
         <tr>
         <td class='kotakadd'><a href='simpanfilm.php?id_film=$id_film'><div class='add'>Add to Watchlist</div></a></td>

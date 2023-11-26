@@ -1,6 +1,7 @@
 body{
     background-image: url("../assets/group 11.png");
-    background-size: 100%;
+    background-size: cover;
+    background-attachment: fixed;
 }
 .center{
     display: flex;
@@ -21,7 +22,8 @@ body{
     margin: none;
 }
 .tahun{
-    font-size: 20px;
+    word-spacing: 50px;
+    font-size: 25px;
     font-family: 'Calistoga', serif;
     margin-top: 0px;
     margin-top: 0;
@@ -78,15 +80,18 @@ table td{
     font-size: 24px;
 }
 .cast{
+    display: flex;
     color: #FEB18B;
     border-top: 5px solid #7B403A;
-
 }
 .cast1{
     color: #FEB18B;
     border-top: 5px solid #7B403A;
     border-bottom: 5px solid #7B403A;
 
+}
+.putih {
+    color: #fff;
 }
 .overflow{
     width: 1000px;

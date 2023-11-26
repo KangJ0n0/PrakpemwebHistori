@@ -28,7 +28,7 @@ function Welcome() {
                 <input type="text" placeholder="Search..">
                 <li><a href="homepage.php">Home</a></li>
                 <li><a href="movielist.php">Movie List</a></li>
-                <li><a href="watchlist.php">Watch List</a></li>
+                <li><a href="watchlist.php" class="page">Watch List</a></li>
 
                 <?php
                 if (isset($_SESSION['username'])) {
@@ -67,10 +67,9 @@ function Welcome() {
     </tr>
     </table>
     </div>
-</body>
-</html>
-
-<?php
+    <div class="center">
+        <div class="kotak">
+        <?php
 // Periksa session username
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
@@ -86,13 +85,7 @@ if (isset($_SESSION['username'])) {
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<div class="film">';
         echo '<a href="detailfilm.php?id_film=' . $row["id_film"] . '">';
-        echo '<img src="' . $row['gambar_film'] . '" />';
-        echo '</a>';
-        echo '<div>';
-        echo '<p>' . $row['nama_film'] . '</p>';
-        echo '<p>(' . $row['tahun'] . ')</p>';
-        echo '<a href="#" onclick="deleteFilm(' . $row['id_film'] . ')"> Hapus</a>';
-        echo '</div>';
+        echo '<img src="' . $row["gambar_film"] . '" alt="gambarfilm"></a>';
         echo '</div>';
     }
     
@@ -109,3 +102,8 @@ if (isset($_SESSION['username'])) {
         }
     }
 </script>
+
+        </div>
+    </div>
+</body>
+</html>
