@@ -13,59 +13,16 @@ function Welcome() {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Homepage</title>
-    <style>
-        header {
-            text-align: right;
-        
-        }
-      
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav a {
-            text-decoration: none;
-            color: black;
-        }
-
-        h1 {
-            text-align: center;
-        }
-    </style>
+    <title>Edit Film</title>
+    <link rel="stylesheet" type="text/css" href="css/tambahfilm.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
-        <nav>
-            <ul>
-                <li><a href="homepage.php">Home</a></li>
-                <li><a href="movielist.php">Movie List</a></li>
-                <li><a href="watchlist.php">Watch List</a></li>
-
-                <?php
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    $query = "SELECT role FROM user WHERE username = '$username'";
-                    $result = mysqli_query($conn, $query);
-
-                    if ($result) {
-                        $row = mysqli_fetch_assoc($result);
-                        $role = $row['role'];
-
-                        if ($role === 'admin') {
-                            echo '<li><a href="manageakun.php">Manage account</a></li>';
-                        }
-                    }
-                }
-                ?>
-                <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
-                <?php
-                Welcome();
-                ?>
-                 <li><a href="logout.php">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
 </body>
 </html>
 
@@ -132,19 +89,79 @@ if (!isset($_SESSION['username'])) {
                     if (mysqli_num_rows($result) > 0) {
                         $row = mysqli_fetch_assoc($result);
                         ?>
+
                         <!-- Form untuk mengedit film -->
-                        <form method="POST" action="" enctype="multipart/form-data">
-                            Film name: <input type="text" name="nama_film" value="<?php echo $row['nama_film']; ?>"><br>
-                            Poster picture:<input type="file" name="gambar_film" id="gambar_film" accept="image/*">
-                            <img src="<?php echo $row['gambar_film']; ?>" alt="Current Image" width="100"><br>
-                            Film description: <textarea name="deskripsi_film"><?php echo $row['deskripsi_film']; ?></textarea><br>
-                            Year release: <input type="number" name="tahun" value="<?php echo $row['tahun']; ?>"><br>
-                            Directors: <input type="text" name="direktor" value="<?php echo $row['direktor']; ?>"><br>
-                            Writers: <input type="text" name="writer" value="<?php echo $row['writer']; ?>"><br>
-                            Stars: <input type="text" name="stars" value="<?php echo $row['stars']; ?>"><br>
-                            Duration: <input type="text" name="durasi" value="<?php echo $row['durasi']; ?>"><br>
-                            <button type="submit">Save change</button>
-                        </form>
+                        <div class="center">
+<table>
+    <tr>
+        <td>
+            <div class="mywatch">
+                <h1>Edit Film</h1>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="shape"></div>
+        </td>
+    </tr>
+    </table>
+</div>
+<div class="tengah">
+    <div class="table">
+    <table>
+    <form method="POST" action="tambahfilm.php" enctype="multipart/form-data">
+        <tr>
+            <td><label for="id_film">ID Film</label></td>
+            <td colspan="2"><input type="number" id="id_film" name="id_film" value="<?php echo $row['id_film']; ?>" readonly></td>
+        </tr>
+        <tr>
+            <td><label for="nama_film">Title</label></td>
+            <td colspan="2"><input type="text" id="nama_film" name="nama_film" value="<?php echo $row['nama_film']; ?>" required></td>
+        </tr>
+        <tr>
+            <td><label for="tahun">Year</label></td>
+            <td colspan="2"><input type="number" id="tahun" name="tahun" value="<?php echo $row['tahun']; ?>" required></td>
+        </tr>
+        <tr>
+            <td><label for="durasi">Duration</label></td>
+            <td colspan="3"><input type="text" id="durasi" name="durasi" value="<?php echo $row['durasi']; ?>" required></td>
+        </tr>
+        <tr>
+            <td><label for="direktor">Directors</label></td>
+            <td colspan="2"><input type="text" id="direktor" name="direktor" value="<?php echo $row['direktor']; ?>" required></td>
+        </tr>
+        <tr>
+            <td><label for="writer">Writers</label></td>
+            <td colspan="2"><input type="text" id="writer" name="writer" value="<?php echo $row['writer']; ?>" required></td>
+        </tr>
+        <tr>
+            <td><label for="stars">Stars</label></td>
+            <td colspan="2"><input type="text" id="stars" name="stars" value="<?php echo $row['stars']; ?>" required></td>
+        </tr>
+        <tr>
+            <td><label for="gambar_film">Poster picture</label></td>
+            <td colspan="2"><input type="file" name="gambar_film" id="gambar_film" accept="image/*" class="file" required>
+            <img src="<?php echo $row['gambar_film']; ?>" alt="Current Image" width="100"><br><label for="gambar_film" class="upload">Upload Image</label></td>
+        </tr>
+        <tr>
+            <td><label for="deskripsi_film">Film Description</label></td>
+            <td class="kecil"><textarea id="deskripsi_film" name="deskripsi_film" required><?php echo $row['deskripsi_film']; ?></textarea></td>
+            <td><button type="submit">Submit</button><br><button onclick="cancel()">Cancel</button></td>
+            <script>
+                function cancel() {
+                window.history.back();
+                }
+            </script>
+        </tr>
+        <tr>
+            <td><td>
+        </tr>
+        </form>
+    </table>
+</form>
+</div>
+</div>
                         <?php
                     } else {
                         echo 'Data tidak ditemukan.';

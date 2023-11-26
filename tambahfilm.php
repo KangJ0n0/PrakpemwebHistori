@@ -28,7 +28,7 @@ function Welcome() {
     <tr>
         <td>
             <div class="mywatch">
-                <h1>My Watchlist</h1>
+                <h1>Add Film</h1>
             </div>
         </td>
     </tr>

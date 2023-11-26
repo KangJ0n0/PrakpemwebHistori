@@ -67,7 +67,11 @@ if (isset($_GET['id_film'])) {
         <td class='cast1'>Stars <p class='putih'>$stars</p></td>
         </tr>
         <tr>
-        <td class='kotakadd'><a href='simpanfilm.php?id_film=$id_film'><div class='add'>Add to Watchlist</div></a></td>
+        <td class='kotakadd'>
+            <a href='hapusfilm.php?id_film=$id_film'><div class='add'>Delete</div></a>
+            <a href='editfilm.php?id_film=$id_film'><div class='add'>Edit</div></a>
+            <a href='simpanfilm.php?id_film=$id_film'><div class='add'>Add to Watchlist</div></a>
+        </td>
         </tr>
         </table>
         
