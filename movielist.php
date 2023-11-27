@@ -13,6 +13,14 @@ function Welcome() {
 <!DOCTYPE html>
 <html>
 <head>
+<title>Movie list</title>
+    <link rel="stylesheet" type="text/css" href="css/movielist.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
     <title>Homepage</title>
     <style>
         header {
