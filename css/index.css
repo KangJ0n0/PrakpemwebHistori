@@ -1,0 +1,88 @@
+body{
+    background-image: url("../assets/index.png");
+    font-family: 'Cabin', sans-serif;
+}
+.container{
+    display: flex;
+}
+
+.left{
+    align-items:end;
+    margin-left: 100px;
+    width: 564px;
+    height: 754px;
+}
+.left img{
+    width: 564px;
+    height: 754px;
+}
+.right{
+    margin-left: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 564px;
+    height: 754px;
+}
+h6{
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: 12px;
+}
+.username{
+    display: flex;
+}
+
+.kotak1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #081818;
+    width: 75px;
+    height: 75px;
+}
+.kotak1 img{
+    width:50px;
+    height:50px;
+}
+
+.kotak2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #081818;
+    border-right: 1px solid #081818;
+    border-bottom: 1px solid #081818;
+    width: 300px;
+    height: 75px;
+}
+
+.kotak2 input{
+    font-size: 28px;
+    background: transparent;
+    outline: none;
+    border: none;
+    width: 280px;
+    height:70px;
+}
+
+.login input{
+    letter-spacing: 2px;
+    font-family: 'Cabin', sans-serif;
+    font-size: 25px;
+    margin-top: 50px;
+    width: 377px;
+    height: 75px;
+    color: #F5DFC8;
+    background-color: #081818;
+    outline: white;
+    border: 1px solid #081818;
+}
+
+.login input:hover{
+    filter:brightness(2);
+}
+
+a{
+    color:#081818;
+}

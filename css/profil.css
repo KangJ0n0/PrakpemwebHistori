@@ -1,0 +1,75 @@
+body{
+    background-image: url("../assets/group 11.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    font-family: 'Cabin', sans-serif;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dataprofil {
+    margin-top: 20.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+}
+
+.arrow{
+    float:left;
+    margin: 30px;
+    transition: all 0.1s ease-in-out;
+}
+.arrow:hover{
+    filter: brightness(100);
+}
+h1{
+    color: #ffffff;
+    font-size: 80px;
+}
+input{
+    font-family: 'Cabin', sans-serif;
+    border-radius:40px;
+    font-size: 32px;
+}
+.email input{
+    color: #081818;
+    background-color: #999284;
+    border: none;
+    width: 426px;
+    height: 67px;
+    text-align: center;
+}
+.home input {
+    color: white;
+    width: 161px;
+    height: 67px;
+    margin-top: 30px;
+    background-color: transparent;
+    border: 4px solid #999284;
+    transition: all 0.1s ease-in-out;
+}
+.home input:hover{
+    color:#081818;
+    background-color: #999284;
+}
+.movielist input {
+    color:white;
+    width: 252px;
+    height: 67px;
+    font-family: 'Cabin', sans-serif;
+    margin-top: 30px;
+    background-color: transparent;
+    border: 4px solid #999284;
+    transition: all 0.1s ease-in-out;
+
+}
+.movielist input:hover{
+    color:#081818;
+    background-color: #999284;
+}
+
+
