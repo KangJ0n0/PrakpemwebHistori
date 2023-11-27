@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 27, 2023 at 01:03 AM
+-- Generation Time: Nov 27, 2023 at 07:39 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -47,7 +47,7 @@ CREATE TABLE `film` (
 INSERT INTO `film` (`id_film`, `nama_film`, `gambar_film`, `deskripsi_film`, `tahun`, `direktor`, `writer`, `stars`, `durasi`, `genre`) VALUES
 (1, 'Habibie & Ainun', 'assets/image 36.png', 'This movie is based on the memoir written by the 3rd President of Indonesia and one of the world-famous engineer, B.J. Habibie about his wife, Hasri Ainun Habibie.', 2012, 'Faozan Rizal', 'B.J. Habiebie, Ifan Ismail, Gina S Noer', 'Reza Rahardian, Bunga Citra Lestari, Tio Pakusadewo', '2h ', 'Biography,Drama,Romance'),
 (2, 'Bumi Manusia', 'assets/image 36 (1).png', 'A native Javanese boy and a mixed-Dutch girl fall in love during the early 20th-century colonial turbulence in Dutch East Indies (now Indonesia).', 2019, 'Hanung Bramantyo, X. Jo', 'Pramoedya Ananta Toer, Salman Aristo', 'Iqbaal Dhiafakhri Ramadhan, Mawar Eva De Jongh', '3h 1m', 'History,Drama'),
-(3, 'Kartini: Princess of Java', 'assets/image 36 (2).png', 'This movie follows the story of the Indonesian heroine named Kartini. In the early 1900s, when Indonesia was still a colony of the Netherlands, women weren\'t allowed to get higher education. Kartini grew up to fight for equality for women.', 2017, 'Hanung Bramayanto', 'Bagus Bramanti, Hanung Bramayanto, Robert Ronny ', 'Dian Sastrowardoyo, Ayushita, Acha Septriasa', '2h 2m', NULL),
+(3, 'Kartini: Princess of Java', 'assets/image 36 (2).png', 'This movie follows the story of the Indonesian heroine named Kartini. In the early 1900s, when Indonesia was still a colony of the Netherlands, women weren\'t allowed to get higher education. Kartini grew up to fight for equality for women.', 2017, 'Hanung Bramayanto', 'Bagus Bramanti, Hanung Bramayanto, Robert Ronny ', 'Dian Sastrowardoyo, Ayushita, Acha Septriasa', '2h 2m', 'Biography,Drama,Family'),
 (4, 'Buya Hamka Vol. 1', 'assets/image 36 (3).png', 'This sweeping biopic captures the life of renowned Muslim scholar Buya Hamka, from his humble West Sumatra origins to his political achievements.', 2023, 'Fajar Bustomi', 'Cassandra Massardi, Alim Sudio', 'Vino G. Bastian, Laudya Chintya Bella,  Donny Damara', '1h 46m', 'History,Biography,Drama'),
 (5, 'Soekarno', 'assets/image 36 (4).png', 'This movie follows the life of Soekarno, the first president of the Republic of Indonesia, from his childhood until he managed to proclaimed Indonesian freedom with M. Hatta in 1945.', 2013, 'Hanung Bramayanto', 'Ben Sihombing', 'Ario Bayu, Muhammad Abbe, Moch. Achir', '2h 17m', 'History,Biography,Drama'),
 (6, 'Sultan Agung: Tahta, Perjuangan, Cinta', 'assets/image 37.png', 'The story about Sultan Agung of Mataram, how he ascended the throne and had to face VOC in great wars, the events that caused his people\'s misery.', 2018, 'Hanung Bramantyo, X. Jo', 'Ifan Ismail, Bagas Pudjilanksono, Mooryati Soedibyo', 'Ario Bayu, Marthino Lio, Adinia Wirasti', '2h 28m', 'History,Action,Drama'),
@@ -76,7 +76,8 @@ CREATE TABLE `myfilm` (
 
 INSERT INTO `myfilm` (`id_myfilm`, `id_user`, `id_film`) VALUES
 (22, 1, 2),
-(24, 1, 1);
+(24, 1, 1),
+(27, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -133,7 +134,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `myfilm`
 --
 ALTER TABLE `myfilm`
-  MODIFY `id_myfilm` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_myfilm` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user`
