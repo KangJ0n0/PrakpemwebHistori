@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
     </style>
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <ul>
                 <li><a href="homepage.php">Home</a></li>
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
                         $role = $row['role'];
 
                         if ($role === 'admin') {
-                            echo '<li><a href="manageakun.php">Manajemen Akun</a></li>';
+                            echo '<li><a href="manageakun.php">Manage account</a></li>';
                         }
                     }
                 }
@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
                 <?php
                 Welcome();
                 ?>
-                 <li><a href="logout.php">Logout</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -97,7 +97,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
         <th>ID User</th>
         <th>Email</th>
         <th>Username</th>
-        <th>Password</th>
     </tr>
     <?php
     while ($row = mysqli_fetch_assoc($result_admin)) {
@@ -105,7 +104,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
         echo "<td>" . $row['id_user'] . "</td>";
         echo "<td>" . $row['email'] . "</td>";
         echo "<td>" . $row['username'] . "</td>";
-        echo "<td>" . $row['password'] . "</td>";
         echo "</tr>";
     }
     ?>
@@ -117,7 +115,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
         <th>ID User</th>
         <th>Email</th>
         <th>Username</th>
-        <th>Password</th>
         <th>Action</th>
     </tr>
     <?php
@@ -126,7 +123,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
         echo "<td>" . $row['id_user'] . "</td>";
         echo "<td>" . $row['email'] . "</td>";
         echo "<td>" . $row['username'] . "</td>";
-        echo "<td>" . $row['password'] . "</td>";
         echo "<td>
                 <form method='POST'>
                     <input type='hidden' name='user_id' value='" . $row['id_user'] . "'>

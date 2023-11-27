@@ -31,14 +31,14 @@ function Welcome() {
 
         .film {
           display: flex;
-           width: 10%; /* Atur lebar div film seukuran dengan gambar */
-             margin: 10px; /* Atur margin agar elemen terpisah dengan baik */
+           width: 10%; 
+             margin: 10px; 
              
 }
 
 .film img {
-    width: 100%; /* Gunakan 100% lebar untuk memenuhi div film */
-    height: auto; /* Menjaga aspek ratio gambar */
+    width: 100%; 
+    height: auto; 
     cursor: pointer;
 }
 
@@ -49,7 +49,7 @@ function Welcome() {
     </style>
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <ul>
                 <li><a href="homepage.php">Home</a></li>
@@ -67,7 +67,7 @@ function Welcome() {
                         $role = $row['role'];
 
                         if ($role === 'admin') {
-                            echo '<li><a href="manageakun.php">Manajemen Akun</a></li>';
+                            echo '<li><a href="manageakun.php">Manage account</a></li>';
                         }
                     }
                 }
@@ -76,7 +76,7 @@ function Welcome() {
                 <?php
                 Welcome();
                 ?>
-                 <li><a href="logout.php">Logout</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>

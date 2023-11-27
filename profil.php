@@ -64,7 +64,7 @@ $username = $userData['username'];
     </style>
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <ul>
                 <li><a href="homepage.php">Home</a></li>
@@ -82,7 +82,7 @@ $username = $userData['username'];
                         $role = $row['role'];
 
                         if ($role === 'admin') {
-                            echo '<li><a href="manageakun.php">Manajemen Akun</a></li>';
+                            echo '<li><a href="manageakun.php">Manage account</a></li>';
                         }
                     }
                 }
@@ -91,12 +91,11 @@ $username = $userData['username'];
                 <?php
                 Welcome();
                 ?>
-                 <li><a href="logout.php">Logout</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
     <div class = "dataprofil">
-        <h2>Profil Pengguna</h2>
     <p><strong>Email:</strong> <?php echo $email; ?></p>
     <p><strong>Username:</strong> <?php echo $username; ?></p>
     </div>

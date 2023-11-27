@@ -62,7 +62,7 @@ function Welcome() {
                 <?php
                 Welcome();
                 ?>
-                 <li><a href="logout.php">Logout</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -88,8 +88,10 @@ if (isset($_GET['id_film'])) {
         $writer = $row['writer'];
         $stars = $row['stars'];
         $durasi = $row['durasi'];
+        $genre = $row['genre'];
 
-        // Tampilkan data film
+
+        // ini data film
         echo "<h1>$nama_film</h1>";
         if ($role === 'admin') {
             echo '<li><a href="editfilm.php?id_film=' . $row["id_film"] . '">Edit film data</a></li>';
@@ -103,6 +105,11 @@ if (isset($_GET['id_film'])) {
         echo "<p>Writers : $writer</p>";
         echo "<p>Stars : $stars</p>";
         echo "<p>$durasi</p>";
+        $genresArray = explode(',', $genre);
+        foreach ($genresArray as $genreItem) {
+            echo "$genreItem ";
+        }
+     
     
         
     } else {

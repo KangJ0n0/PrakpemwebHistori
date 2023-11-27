@@ -50,7 +50,8 @@ function Welcome() {
 </head>
 <body>
 <nav>
-    <header>
+<header>
+        <nav>
             <ul>
                 <li><a href="homepage.php">Home</a></li>
                 <li><a href="movielist.php">Movie List</a></li>
@@ -67,7 +68,7 @@ function Welcome() {
                         $role = $row['role'];
 
                         if ($role === 'admin') {
-                            echo '<li><a href="manageakun.php">Manajemen Akun</a></li>';
+                            echo '<li><a href="manageakun.php">Manage account</a></li>';
                         }
                     }
                 }
@@ -76,10 +77,10 @@ function Welcome() {
                 <?php
                 Welcome();
                 ?>
-                 <li><a href="logout.php">Logout</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
-            </header>
+    </header>
 </body>
 </html>
 
