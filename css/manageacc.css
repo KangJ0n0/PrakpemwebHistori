@@ -103,3 +103,7 @@ td:not(:first-child) {
     width: 100%;
     font-size: 28px;
 }
+.page{
+    color: #ffffff;
+
+}

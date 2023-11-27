@@ -73,7 +73,7 @@ function Welcome() {
         </tr>
         <tr>
             <td><label for="gambar_film">Poster picture</label></td>
-            <td colspan="2"><label for="upload" class="upload">Upload Image</label><input type="file" name="gambar_film" id="gambar_film" accept="image/*" class="file" required></td>
+            <td colspan="2"><label for="gambar_film" class="upload">Upload Image</label><input type="file" name="gambar_film" id="gambar_film" accept="image/*" class="file" required></td>
         </tr>
         <tr>
             <td><label for="deskripsi_film">Film Description</label></td>

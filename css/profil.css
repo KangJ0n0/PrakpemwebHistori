@@ -73,3 +73,16 @@ input{
 }
 
 
+.logout input {
+    color: white;
+    width: 161px;
+    height: 67px;
+    margin-top: 10px;
+    background-color: transparent;
+    border: 4px solid #999284;
+    transition: all 0.1s ease-in-out;
+}
+.logout input:hover{
+    color:#081818;
+    background-color: #999284;
+}

@@ -1,0 +1,73 @@
+body{
+    background-image: url("../assets/index.png");
+    background-size: cover;
+
+}
+.nav{
+    border: 2px solid black;
+    float: right;
+    font-size: 28px;
+    margin-right: 100px;
+}
+.nav a{
+    color: black;
+    text-decoration: none;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.kotak{
+    width: 1600px;
+    background-image: url("../assets/Group\ 46.png");
+    background-repeat: no-repeat;
+    border: 2px solid black;
+}
+.kotak p{
+ font-size: 128px;
+
+}
+
+.a{
+    position: relative;
+    top: 101px;
+    left: 659px;
+    font-family: 'Calistoga', serif;
+    font-weight: 700;
+}
+.collection{
+    position: relative;
+    top: 270px;
+    left: 709px;
+    font-family: 'Calistoga', serif;
+    font-weight: 100;
+}
+.of{
+    position: relative;
+    top: 400px;
+    left: 1000px;
+    font-family: 'Cabin', sans-serif;
+
+}
+.historical{
+    position: relative;
+    top: 520px;
+    left: 909px;
+    font-family: 'Cabin', sans-serif;
+
+}
+.indonesian{
+    position: relative;
+    top: 650px;
+    left: 129px;
+    font-family: 'Calistoga', serif;
+    font-weight: 700;
+}
+.movies{
+    position: relative;
+    top: 780px;
+    left: 589px;
+    font-family: 'Calistoga', serif;
+    font-weight: 100;
+}

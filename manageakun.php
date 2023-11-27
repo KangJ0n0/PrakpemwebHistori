@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
                 <input type="text" placeholder="Search..">
                 <li><a href="homepage.php">Home</a></li>
                 <li><a href="movielist.php">Movie List</a></li>
-                <li><a href="watchlist.php" class="page">Watch List</a></li>
+                <li><a href="watchlist.php">Watch List</a></li>
 
                 <?php
                 if (isset($_SESSION['username'])) {
@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
                         $role = $row['role'];
 
                         if ($role === 'admin') {
-                            echo '<li><a href="manageakun.php">Manajemen Akun</a></li>';
+                            echo '<li><a href="manageakun.php" class="page">Manajemen Akun</a></li>';
                         }
                     }
                 }

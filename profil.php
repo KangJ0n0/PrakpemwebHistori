@@ -58,6 +58,9 @@ if ($result->num_rows == 1) {
                 <td align="center" class="home"><input type="submit" value="home" name="home"></td>
                 <td align="center" class="movielist"><input type="submit" value="movie list" name="movielist"></td>
             </tr>
+            <tr>
+                <td colspan="2" align="center" class="logout"><input type="submit" value="log out"></td>
+            </tr>
         </table>
     </div>
 </div>
