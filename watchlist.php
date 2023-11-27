@@ -23,7 +23,8 @@ function Welcome() {
 </head>
 <body>
 <nav>
-    <header>
+<header>
+        <nav>
             <ul>
                 <input type="text" placeholder="Search..">
                 <li><a href="homepage.php">Home</a></li>
@@ -41,7 +42,7 @@ function Welcome() {
                         $role = $row['role'];
 
                         if ($role === 'admin') {
-                            echo '<li><a href="manageakun.php">Manajemen Akun</a></li>';
+                            echo '<li><a href="manageakun.php">Manage account</a></li>';
                         }
                     }
                 }

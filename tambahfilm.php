@@ -110,7 +110,7 @@ if (isset($_SESSION['username'])) {
         $role = $row['role'];
 
         if ($role !== 'admin') {
-            header("Location: homepage.php"); // Redirect ke halaman utama jika bukan admin
+            header("Location: homepage.php"); 
             exit();
         }
     }
@@ -119,9 +119,9 @@ if (isset($_SESSION['username'])) {
     exit();
 }
 
-// Proses form jika ada data yang dikirimkan
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Lakukan validasi data sesuai kebutuhan
+    
     $id_film = $_POST['id_film'];
     $nama_film = $_POST['nama_film'];
     $deskripsi_film = $_POST['deskripsi_film'];
@@ -130,14 +130,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $writer = $_POST['writer'];
     $stars = $_POST['stars'];
     $durasi = $_POST['durasi'];
+    $genre = $_POST['genre'];
 
-    // Proses file gambar yang diunggah
+    $genre_string = implode(",", $genre);
+
     $target_dir = "assets/";
     $target_file = $target_dir . basename($_FILES["gambar_film"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-    // Check if image file is a actual image or fake image
+    
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["gambar_film"]["tmp_name"]);
         if($check !== false) {
@@ -156,19 +158,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($uploadOk == 0) {
-        echo "File gagal di upload.";
+        echo "File failed to upload.";
 
     } else {
         if (move_uploaded_file($_FILES["gambar_film"]["tmp_name"], $target_file)) {
             echo "The file ". htmlspecialchars( basename( $_FILES["gambar_film"]["name"])). " has been uploaded.";
             
-            // Simpan data film ke database
+           
             $gambar_film = "assets/" . basename($_FILES["gambar_film"]["name"]);
-            $query_insert = "INSERT INTO film (id_film, nama_film, gambar_film, deskripsi_film, tahun, direktor, writer, stars, durasi) VALUES ('$id_film','$nama_film', '$gambar_film', '$deskripsi_film', '$tahun', '$direktor', '$writer', '$stars', '$durasi')";
+            $query_insert = "INSERT INTO film (id_film, nama_film, gambar_film, deskripsi_film, tahun, direktor, writer, stars, durasi, genre) VALUES ('$id_film','$nama_film', '$gambar_film', '$deskripsi_film', '$tahun', '$direktor', '$writer', '$stars', '$durasi', '$genre_string')";
+
             $result_insert = mysqli_query($conn, $query_insert);
 
             if ($result_insert) {
-                echo '<script>if(!alert("List Film berhasil di tambahkan")) document.location = "movielist.php";
+                echo '<script>if(!alert("Success add new film data")) document.location = "movielist.php";
                             </script>';
             } else {
                 echo "Error: " . mysqli_error($conn);

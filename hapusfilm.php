@@ -2,6 +2,13 @@
 session_start();
 require("koneksi.php");
 
+function Welcome() {
+    if (isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+        echo '<li style="float:left">Welcome, ' . $username . '</li>';
+    }
+}
+
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
     $query = "SELECT role FROM user WHERE username = '$username'";
@@ -25,12 +32,11 @@ if (isset($_SESSION['username'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_film = $_POST['id_film'];
 
-    // Hapus data film dari database
     $query_delete = "DELETE FROM film WHERE id_film='$id_film'";
     $result_delete = mysqli_query($conn, $query_delete);
 
     if ($result_delete) {
-        echo '<script><alert>List Film berhasil Dihapus.</alert></script>';
+        echo '<script><alert>Film data success deletedQ.</alert></script>';
         header("Location: movielist.php");
         exit(); 
     } else {
@@ -43,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hapus Film</title>
+    <title>Delete List</title>
     <style>
               header {
             text-align: right;
@@ -61,8 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
-    <header>
-    <nav>
+<header>
+        <nav>
             <ul>
                 <li><a href="homepage.php">Home</a></li>
                 <li><a href="movielist.php">Movie List</a></li>
@@ -79,24 +85,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $role = $row['role'];
 
                         if ($role === 'admin') {
-                            echo '<li><a href="manageakun.php">Manajemen Akun</a></li>';
+                            echo '<li><a href="manageakun.php">Manage account</a></li>';
                         }
                     }
                 }
                 ?>
                 <li style="float:right"><a href="profil.php"><img src="Assets/profil.png" style="height: 25px; width: 25px;"></a></li>
                 <?php
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    echo '<li style="float:left">Selamat datang, ' . $username . '</li>';
-                }
+                Welcome();
                 ?>
-                 <li><a href="logout.php">Logout</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
 
-    <h2>Hapus Film</h2>
+    <h2></h2>
 
     <?php
     // Ambil id_film dari parameter URL

@@ -2,7 +2,8 @@
 session_start();
 require("koneksi.php");
 
-function Welcome() {
+function Welcome()
+{
     if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
         echo '<li style="float:left">Welcome, ' . $username . '</li>';
@@ -12,6 +13,7 @@ function Welcome() {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Edit Film</title>
     <link rel="stylesheet" type="text/css" href="css/tambahfilm.css">
@@ -22,14 +24,16 @@ function Welcome() {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
 </head>
+
 <body>
 </body>
+
 </html>
 
 <?php
 
 if (!isset($_SESSION['username'])) {
-    echo "Anda harus login untuk mengedit film.";
+    echo "Login first.";
 } else {
     $username = $_SESSION['username'];
     $query = "SELECT role FROM user WHERE username = '$username'";
@@ -40,16 +44,15 @@ if (!isset($_SESSION['username'])) {
         $role = $roleRow['role'];
 
         if ($role === 'admin') {
-            // Ambil ID Film dari parameter URL
+
             $id_film = isset($_GET['id_film']) ? $_GET['id_film'] : null;
 
             if ($id_film === null) {
                 echo "ID Film tidak valid.";
-                // Handle the error or redirect the user
             } else {
-                
+
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                  
+
                     $nama_film = $_POST['nama_film'];
                     $deskripsi_film = $_POST['deskripsi_film'];
                     $tahun = $_POST['tahun'];
@@ -57,28 +60,38 @@ if (!isset($_SESSION['username'])) {
                     $writer = $_POST['writer'];
                     $stars = $_POST['stars'];
                     $durasi = $_POST['durasi'];
+                    $genre = isset($_POST['genre']) ? $_POST['genre'] : [];
 
-                  
+                    $genre_string = implode(",", $genre);
+                    $prev_genre = !empty($row['genre']) ? explode(",", $row['genre']) : [];
+
                     if ($_FILES["gambar_film"]["error"] == UPLOAD_ERR_OK) {
                         $target_dir = "assets/";
                         $target_file = $target_dir . basename($_FILES["gambar_film"]["name"]);
-                        
 
                         move_uploaded_file($_FILES["gambar_film"]["tmp_name"], $target_file);
 
-                        
                         $gambar_film = $target_file;
-                        $update_query = "UPDATE film SET nama_film='$nama_film', gambar_film='$gambar_film', deskripsi_film='$deskripsi_film', tahun='$tahun' WHERE id_film='$id_film'";
                     } else {
-                        $update_query = "UPDATE film SET nama_film='$nama_film', deskripsi_film='$deskripsi_film', tahun='$tahun' WHERE id_film='$id_film'";
+                        $gambar_film = $_POST['prev_gambar_film'];
                     }
 
-                    
-                    $result_update = mysqli_query($conn, $update_query);
+                    // Using prepared statement to handle the update
+                    $update_query = "UPDATE film SET nama_film=?, gambar_film=?, deskripsi_film=?, tahun=?, direktor=?, writer=?, stars=?, durasi=?, genre=? WHERE id_film=?";
+                    $stmt = mysqli_prepare($conn, $update_query);
 
-                    if ($result_update) {
-                        echo '<script>if(!alert("List berhasil di update")) document.location = "movielist.php";
-                            </script>';
+                    if ($stmt) {
+                        mysqli_stmt_bind_param($stmt, 'sssssssssi', $nama_film, $gambar_film, $deskripsi_film, $tahun, $direktor, $writer, $stars, $durasi, $genre_string, $id_film);
+
+                        // Execute the prepared statement
+                        if (mysqli_stmt_execute($stmt)) {
+                            echo '<script>if(!alert("Update success")) document.location = "movielist.php";</script>';
+                        } else {
+                            echo "Error: " . mysqli_stmt_error($stmt);
+                        }
+
+                        // Close the prepared statement
+                        mysqli_stmt_close($stmt);
                     } else {
                         echo "Error: " . mysqli_error($conn);
                     }
@@ -88,6 +101,8 @@ if (!isset($_SESSION['username'])) {
 
                     if (mysqli_num_rows($result) > 0) {
                         $row = mysqli_fetch_assoc($result);
+                        $prev_gambar_film = $row['gambar_film'];
+                        $prev_genre = !empty($row['genre']) ? explode(",", $row['genre']) : [];
                         ?>
 
                         <!-- Form untuk mengedit film -->
@@ -164,12 +179,12 @@ if (!isset($_SESSION['username'])) {
 </div>
                         <?php
                     } else {
-                        echo 'Data tidak ditemukan.';
+                        echo 'No data.';
                     }
                 }
             }
         } else {
-            echo "Anda tidak memiliki izin untuk mengedit film.";
+            echo "You don't have authorization to edit this.";
         }
     }
 }
